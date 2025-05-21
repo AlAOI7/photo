@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>معرض الصور</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1 class="title">معرض الصور</h1>
+
+
+  <div class="gallery">
+    <img src="photo/7.jpg" alt="صورة 1">
+    <img src="photo/7.jpg" alt="صورة 2">
+    <img src="photo/7.jpg" alt="صورة 3">
+    <img src="photo/7.jpg" alt="صورة 4">
+    <img src="photo/7.jpg" alt="صورة 5">
+    <img src="photo/7.jpg" alt="صورة 6">
+    <img src="photo/7.jpg" alt="صورة 7">
+  </div>
+
+  <!-- عرض الصورة بالحجم الكامل -->
+  <div id="fullscreen-view" class="fullscreen">
+    <span class="close" onclick="closeImage()">&times;</span>
+    <img class="fullscreen-img" id="fullscreen-img" src="" alt="">
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const fullscreen = document.getElementById('fullscreen-view');
+    const fullscreenImg = document.getElementById('fullscreen-img');
+
+    images.forEach(img => {
+      img.addEventListener('click', () => {
+        fullscreenImg.src = img.src;
+        fullscreen.style.display = 'flex';
+      });
+    });
+
+    function closeImage() {
+      fullscreen.style.display = 'none';
+      fullscreenImg.src = '';
+    }
+  </script>
+</body>
+</html>
